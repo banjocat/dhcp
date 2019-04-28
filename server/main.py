@@ -46,9 +46,10 @@ dhcp_struct_format = '\
         I\
         I\
         I\
-        s\
-        s\
-        s\
+        16s\
+        64s\
+        128s\
+        312s\
         '
 
 class DhcpServer(DatagramServer):
@@ -57,4 +58,5 @@ class DhcpServer(DatagramServer):
         print(struct.unpack(dhcp_struct_format, data))
 
 if __name__ == '__main__':
-    DhcpServer(':10067').serve_forever()
+    print('starting server')
+    DhcpServer(':67').serve_forever()
